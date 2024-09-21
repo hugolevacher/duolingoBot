@@ -1,0 +1,287 @@
+a,à/en
+abrigo,manteau
+abril,avril
+abuelo,grand-père
+acerca,à propos
+adiós,au revoir
+agosto,août
+agua,eau
+al,au/par
+almuerzo,déjeuner/je déjeune
+amarillo,jaune
+animal,animal
+animales,animaux
+anoche,hier soir
+araña,araignée
+arroz,riz
+ayer,hier
+azul,bleue/bleu
+azúcar,sucre
+año,an/année
+bajo,sous/bas/descends
+bebe,bébé/boit/bois
+bebemos,nous buvons/buvons
+beben,buvez/vous buvez/boivent
+beber,boire
+bebes,tu bois/bois/bébés
+bebo,je bois/bois
+bebé,bébé
+bienvenido,bienvenu/bienvenue
+blanco,blanc
+bota,botte
+buenas noches,bonsoir/bonne nuit
+buenos días,bonjour
+caballo,cheval
+caballos,chevaux
+calcetín,chaussette
+calendario,calendrier
+caminar,marcher
+camisa,chemise
+cangrejo,crabe
+carne,viande
+carnicería,boucherie
+carta,lettre/carte/charte
+cartas,lettres/cartes/chartes
+cebolla,oignon
+cena,dîner
+cerca,près
+cerdo,cochon/porc
+cerveza,bière
+cinturón,ceinture
+cita,rendez-vous
+cocinar,cuisiner
+cocino,je cuisine/cuisine
+color,robes/robe/couleur
+come,mange
+comemos,nous mangeons/mangeons
+comen,mangent/mangez/vous mangez
+comer,manger
+comes,tu manges/manges
+comida,nourriture/repas/déjeuner
+como,je mange/mange
+con,avec
+conejo,lapin
+contra,contre
+corbata,cravate
+cumpleaños,anniversaire
+cuál,quelle/quel
+cuáles,quels/lesquelles/quelles
+cuándo,quand
+cuánto,combien/quelle quantité
+cómo,comment
+de,de/d'/à
+de nada,de rien
+del,du/de l'
+desayuno,petit déjeuner
+desde,depuis
+diario,journal/quotidien
+diarios,journaux/quotidiens
+diciembre,décembre
+disculpe,excusez-moi/pardon
+domingo,dimanche
+dormir,dormir
+durante,pendant/durant
+día,jour/journée
+e,et
+el,le/l'
+elefante,éléphant
+elefantes,éléphants
+emparedado,sandwich
+en,dans/en/à
+enero,janvier
+entre,entre
+eres,tu es/es
+es,est
+escribe,écrit/écris/écrit
+escriben,écrivent/vous écrivez/écrivent
+escribimos,nous écrivons/écrivons
+escribir,écrire
+escribo,j'écris/écris
+escuchar,écouter
+español,espagnol/Espagnol
+esposo,époux
+estación,gare/saison/station
+estar,être
+falda,jupe
+familia,famille
+febrero,février
+fecha,date
+fiesta,fête
+fresa,fraise
+fresas,fraises
+fruta,fruit
+gafas,lunettes
+gata,chatte
+gatas,chattes
+gato,chat
+gatos,chats
+gracias,merci
+gris,gris/grise
+hablar,parler
+hablas,tu parles/parles
+hacer,faire
+hacia,vers/envers
+hasta,jusqu'à/jusque
+hermano,frère
+hijo,fils/enfant
+hola,salut/bonjour
+hombre,homme
+hombres,hommes
+hora,heure
+hoy,aujourd'hui
+huevo,œuf
+inglés,anglais
+invierno,hiver
+ir,aller
+jueves,jeudi/jeudis
+jugo,jus
+julio,juillet
+junio,juin
+la,la/l'
+las,les/vous/celles
+leche,lait
+lee,lis/lit/lit
+leemos,nous lisons/lisons
+leen,vous lisez/lisent/lisent
+leer,lire
+lees,tu lis/lis
+leo,je lis/lis
+león,lion
+libro,livre
+libros,livres
+limón,citron
+llaves,clefs/clés
+lo siento,je suis désolée/je suis désolé/désolé
+los,les/ceux/vous
+lunes,lundi/lundis
+madre,mère
+madrugada,aube
+mamá,maman/mère
+manzana,pomme
+manzanas,pommes
+marido,mari
+martes,mardi/mardis
+marzo,mars
+mayo,mai
+mañana,demain/matin
+mediodía,midi
+menú,menu
+mes,mois
+mi,ma/mon
+minuto,minute
+mirar,regarder
+mis,mes
+miércoles,mercredi/mercredis
+momento,moment
+mono,singe
+mucho gusto,enchantée/enchanté
+mujer,femme
+mujeres,femmes
+nadar,nager
+naranja,orange
+negro,noir
+ni,ni
+niña,petite fille/fille/petite enfant
+niñas,petites filles/filles/petites enfants
+niño,petit garçon/enfant/garçon
+niños,petits garçons/enfants/petits enfants
+no,non/ne/n'
+noche,nuit/soir
+nombre,prénom/nom
+noviembre,novembre
+novio,copain/fiancé/petit copain
+nuestro,nôtre/notre
+o,ou
+octubre,octobre
+oso,ours
+oír,entendre
+padre,père
+pagar,payer
+palabras,mots/paroles
+pan,pain
+panadería,boulangerie
+pantalón,pantalon
+papa,pomme de terre/patate
+papá,papa
+para,pour/à/arrête
+pasta,pâtes/pâte
+pato,canard
+patos,canards
+perdón,pardon
+pero,mais
+perro,chien
+perros,chiens
+persona,personne
+pescado,poisson
+pescados,poissons
+pez,poisson
+pingüino,manchot
+pollo,poulet
+por,par/pour/à
+por favor,s'il vous plaît/s'il te plaît
+por qué,pourquoi
+pregunta,question/demande/demande
+primavera,printemps
+primo,cousin
+pájaro,oiseau
+pájaros,oiseaux
+que,que/qu'
+querer,aimer/vouloir
+queso,fromage
+quién,qui
+quiénes,qui
+qué,que/qu'/quoi
+rato,moment
+ratón,souris
+rojo,rouge
+ropa,linge/vêtements
+sal,sel
+salsa,sauce
+segundo,seconde/deuxième/second
+según,selon/d'après
+semana,semaine
+septiembre,septembre
+si,si/s'
+sin,sans
+sino,mais/sauf/sinon
+sobre,sur/enveloppe/relative
+sombrero,chapeau
+somos,nous sommes/sommes
+son,sont/êtes/vous êtes
+sopa,soupe
+soy,je suis/suis
+su,votre/leur/son
+sus,leurs/ses/vos
+suéter,pull
+sábado,samedi
+sí,oui/si
+tarde,tard/soir/après-midi
+temporada,saison
+tener,avoir/tenir
+tomate,tomate
+toro,taureau
+tortuga,tortue
+tortugas,tortues
+traje,costume
+tu,ta/ton
+tus,tes
+té,thé
+tía,tante
+tío,oncle
+u,ou
+un,un
+una,une
+usted,vous
+vacaciones,vacances
+vegetariano,végétarien
+venir,venir
+ver,voir
+verano,été
+verde,verte/vert/vert
+verdura,légume
+vestido,robe/vêtement
+vez,fois
+viernes,vendredi/vendredis
+vino,vin/est venue/êtes venu
+y,et
+zapato,chaussure
