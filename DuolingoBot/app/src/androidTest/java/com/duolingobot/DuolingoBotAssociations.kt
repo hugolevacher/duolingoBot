@@ -28,46 +28,25 @@ import java.net.URL
  */
 @RunWith(AndroidJUnit4::class)
 class DuolingoBotAssociations {
+    val dictionary= createDictionary(InstrumentationRegistry.getInstrumentation().targetContext)
+    val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+    var btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
+    var btnContinuer = device.findObject(By.res("com.duolingo:id/coachContinueButton"))
+    private lateinit var uiObjectsFrancais: MutableMap<UiObject2, Point>
+    private lateinit var uiObjectsEspagnol: MutableMap<UiObject2, Point>
+
     @Test
     fun bot() {
-        val dictionary= createDictionary(InstrumentationRegistry.getInstrumentation().targetContext)
-        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-
         device.findObject(By.res("com.duolingo:id/rampUpFabIcon")).click()
-        var btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
-        while(btnCommencer==null){
-            Thread.sleep(500)
-            btnCommencer=device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
-        }
-        btnCommencer.click()
+        clicksStarting()
 
-        var btnContinuer = device.findObject(By.res("com.duolingo:id/coachContinueButton"))
-        while(btnContinuer==null){
-            Thread.sleep(500)
-            btnContinuer=device.findObject(By.res("com.duolingo:id/coachContinueButton"))
-        }
-        btnContinuer.click()
-
-        var (uiObjectsFrancais, uiObjectsEspagnol) = getUiObjectsFrEs(device)
+        val (newUiObjectsFrancais, newUiObjectsEspagnol) = getUiObjectsFrEs(device)
+        uiObjectsFrancais = newUiObjectsFrancais
+        uiObjectsEspagnol = newUiObjectsEspagnol
 
         while(true){
-            btnContinuer=device.findObject(By.res("com.duolingo:id/coachContinueButton"))
-            if(btnContinuer!=null){
-                btnContinuer.click()
-                Thread.sleep(1000)
-
-                val (newUiObjectsFrancais, newUiObjectsEspagnol) = getUiObjectsFrEs(device)
-                uiObjectsFrancais = newUiObjectsFrancais
-                uiObjectsEspagnol = newUiObjectsEspagnol
-            }
-
-
-            val listeDeMotFrancais = uiObjectsFrancais.map { elementFrancais->
-                elementFrancais.key.text
-            }.toMutableList()
-            val listeDeMotEspagnol = uiObjectsEspagnol.map { elementEspagnol->
-                elementEspagnol.key.text
-            }
+            chercherSiBtnApparu()
+            val (listeDeMotFrancais, listeDeMotEspagnol) = avoirListesDeMots()
 
             for(i in listeDeMotEspagnol.indices){
                 val centre = uiObjectsEspagnol.values.elementAt(i)
@@ -89,12 +68,48 @@ class DuolingoBotAssociations {
                         val motTraduit = translateText(listeDeMotEspagnol[i], "es", "fr")
                         if (motTraduit != null) {
                             dictionary[listeDeMotEspagnol[i]] = listOf(motTraduit)
-                            println("Holy shit we did it: $motTraduit")
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun avoirListesDeMots(): Pair<MutableList<String>, List<String>> {
+        val listeDeMotFrancais = uiObjectsFrancais.map { elementFrancais ->
+            elementFrancais.key.text
+        }.toMutableList()
+        val listeDeMotEspagnol = uiObjectsEspagnol.map { elementEspagnol ->
+            elementEspagnol.key.text
+        }
+        return Pair(listeDeMotFrancais, listeDeMotEspagnol)
+    }
+
+    private fun chercherSiBtnApparu() {
+        btnContinuer = device.findObject(By.res("com.duolingo:id/coachContinueButton"))
+        if (btnContinuer != null) {
+            btnContinuer.click()
+            Thread.sleep(1000)
+
+            val (newUiObjectsFrancais, newUiObjectsEspagnol) = getUiObjectsFrEs(device)
+            uiObjectsFrancais = newUiObjectsFrancais
+            uiObjectsEspagnol = newUiObjectsEspagnol
+        }
+    }
+
+    private fun clicksStarting() {
+        while (btnCommencer == null) {
+            Thread.sleep(500)
+            btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
+        }
+        btnCommencer.click()
+
+
+        while (btnContinuer == null) {
+            Thread.sleep(500)
+            btnContinuer = device.findObject(By.res("com.duolingo:id/coachContinueButton"))
+        }
+        btnContinuer.click()
     }
 
     private fun getUiObjectsFrEs(device: UiDevice): Pair<MutableMap<UiObject2, Point>, MutableMap<UiObject2, Point>> {
@@ -125,7 +140,14 @@ class DuolingoBotAssociations {
                 if (splitted.size == 2) {
                     val espagnol=splitted[0]
                     val francais = splitted[1].split('/').map { it.trim() }
-                    dictionary[espagnol]=francais
+                    if(dictionary.containsKey(espagnol)){
+                        val existingList = dictionary[espagnol] ?: emptyList()
+                        val combinedList = existingList + francais
+                        dictionary[espagnol] = combinedList.distinct() // To avoid duplicates
+                    }
+                    else{
+                        dictionary[espagnol]=francais
+                    }
                 }
             }
         }
