@@ -2,7 +2,7 @@ import java.io.File
 
 fun main() {
     val inputFileName = "liste.txt"
-    val outputFileName = "formatedliste.txt"
+    val outputFileName = "formatedlistev2.txt"
 
     reformatWordList(inputFileName, outputFileName)
 }
