@@ -20,6 +20,7 @@ import org.json.JSONObject
 import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlin.concurrent.thread
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -30,23 +31,30 @@ import java.net.URL
 class DuolingoBotAssociations {
     val dictionary= createDictionary(InstrumentationRegistry.getInstrumentation().targetContext)
     val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-    var btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
+    var btnCommencer = device.findObject(By.res("com.duolingo:id/sidequestIntroStartChallenge"))
+    //var btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
     var btnContinuer = device.findObject(By.res("com.duolingo:id/coachContinueButton"))
     private lateinit var uiObjectsFrancais: MutableMap<UiObject2, Point>
     private lateinit var uiObjectsEspagnol: MutableMap<UiObject2, Point>
 
     @Test
     fun bot() {
-        device.findObject(By.res("com.duolingo:id/rampUpFabIcon")).click()
+        //device.findObject(By.res("com.duolingo:id/rampUpFabIcon")).click()
         clicksStarting()
-
-        val (newUiObjectsFrancais, newUiObjectsEspagnol) = getUiObjectsFrEs(device)
-        uiObjectsFrancais = newUiObjectsFrancais
-        uiObjectsEspagnol = newUiObjectsEspagnol
+        resetUiObjects()
 
         while(true){
-            chercherSiBtnApparu()
-            val (listeDeMotFrancais, listeDeMotEspagnol) = avoirListesDeMots()
+            var listeDeMotFrancais: List<String>
+            var listeDeMotEspagnol: List<String>
+            try{
+                val (newlisteDeMotFrancais, newlisteDeMotEspagnol) = avoirListesDeMots()
+                listeDeMotFrancais = newlisteDeMotFrancais
+                listeDeMotEspagnol = newlisteDeMotEspagnol
+            }catch(e:Exception){
+                chercherSiBtnApparu()
+                continue
+            }
+
 
             for(i in listeDeMotEspagnol.indices){
                 val centre = uiObjectsEspagnol.values.elementAt(i)
@@ -64,21 +72,21 @@ class DuolingoBotAssociations {
                 }
                 else {
                     println("We need new word: ${listeDeMotEspagnol[i]}")
-                    GlobalScope.launch(Dispatchers.IO) {
-                        val motTraduit = translateText(listeDeMotEspagnol[i], "es", "fr")
-                        if (motTraduit != null) {
-                            dictionary[listeDeMotEspagnol[i]] = listOf(motTraduit)
-                        }
-                    }
+//                    GlobalScope.launch(Dispatchers.IO) {
+//                        val motTraduit = translateText(listeDeMotEspagnol[i], "es", "fr")
+//                        if (motTraduit != null) {
+//                            dictionary[listeDeMotEspagnol[i]] = listOf(motTraduit)
+//                        }
+//                    }
                 }
             }
         }
     }
 
-    private fun avoirListesDeMots(): Pair<MutableList<String>, List<String>> {
+    private fun avoirListesDeMots(): Pair<List<String>, List<String>> {
         val listeDeMotFrancais = uiObjectsFrancais.map { elementFrancais ->
             elementFrancais.key.text
-        }.toMutableList()
+        }
         val listeDeMotEspagnol = uiObjectsEspagnol.map { elementEspagnol ->
             elementEspagnol.key.text
         }
@@ -86,21 +94,34 @@ class DuolingoBotAssociations {
     }
 
     private fun chercherSiBtnApparu() {
+        Thread.sleep(1000)
         btnContinuer = device.findObject(By.res("com.duolingo:id/coachContinueButton"))
+        //val btnEnd = device.findObject(By.res("com.duolingo:id/sessionEndContinueButton"))
+        val btnEnd = device.findObject(By.res("com.duolingo:id/primaryButton"))
         if (btnContinuer != null) {
             btnContinuer.click()
             Thread.sleep(1000)
 
-            val (newUiObjectsFrancais, newUiObjectsEspagnol) = getUiObjectsFrEs(device)
-            uiObjectsFrancais = newUiObjectsFrancais
-            uiObjectsEspagnol = newUiObjectsEspagnol
+            resetUiObjects()
+        }else if(btnEnd!=null){
+            btnEnd.click()
+            Thread.sleep(500)
+            clicksStarting()
+            resetUiObjects()
         }
+    }
+
+    private fun resetUiObjects() {
+        val (newUiObjectsFrancais, newUiObjectsEspagnol) = getUiObjectsFrEs(device)
+        uiObjectsFrancais = newUiObjectsFrancais
+        uiObjectsEspagnol = newUiObjectsEspagnol
     }
 
     private fun clicksStarting() {
         while (btnCommencer == null) {
             Thread.sleep(500)
-            btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
+            //btnCommencer = device.findObject(By.res("com.duolingo:id/matchMadnessStartChallenge"))
+            btnCommencer = device.findObject(By.res("com.duolingo:id/sidequestIntroStartChallenge"))
         }
         btnCommencer.click()
 

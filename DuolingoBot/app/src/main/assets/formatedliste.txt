@@ -1,5 +1,6 @@
 a,à/en
 abrigo,manteau
+abrigos,manteaux
 abril,avril
 abuelo,grand-père
 acerca,à propos
@@ -29,6 +30,7 @@ bebé,bébé
 bienvenido,bienvenu/bienvenue
 blanco,blanc
 bota,botte
+botas,bottes
 buenas noches,bonsoir/bonne nuit
 buenos días,bonjour
 caballo,cheval
@@ -37,6 +39,7 @@ calcetín,chaussette
 calendario,calendrier
 caminar,marcher
 camisa,chemise
+camisas,chemises
 cangrejo,crabe
 carne,viande
 carnicería,boucherie
@@ -68,6 +71,7 @@ cuál,quelle/quel
 cuáles,quels/lesquelles/quelles
 cuándo,quand
 cuánto,combien/quelle quantité
+Cuba,Cuba
 cómo,comment
 de,de/d'/à
 de nada,de rien
@@ -101,8 +105,12 @@ escuchar,écouter
 español,espagnol/Espagnol
 esposo,époux
 estación,gare/saison/station
+está,est
+estás,tu es
 estar,être
+estoy,je suis
 falda,jupe
+faldas,jupes
 familia,famille
 febrero,février
 fecha,date
@@ -138,7 +146,7 @@ jugo,jus
 julio,juillet
 junio,juin
 la,la/l'
-las,les/vous/celles
+las,les/celles
 leche,lait
 lee,lis/lit/lit
 leemos,nous lisons/lisons
@@ -190,7 +198,9 @@ noche,nuit/soir
 nombre,prénom/nom
 noviembre,novembre
 novio,copain/fiancé/petit copain
+nuestras,nos
 nuestro,nôtre/notre
+nuestros,nos
 o,ou
 octubre,octobre
 oso,ours
@@ -207,6 +217,7 @@ para,pour/à/arrête
 pasta,pâtes/pâte
 pato,canard
 patos,canards
+peces,poissons
 perdón,pardon
 pero,mais
 perro,chien
@@ -280,7 +291,11 @@ verano,été
 verde,verte/vert/vert
 verdura,légume
 vestido,robe/vêtement
+vestidos,robes
 vez,fois
+viene,vient
+vienes,viens
+vienen,viennent
 viernes,vendredi/vendredis
 vino,vin/est venue/êtes venu
 y,et
